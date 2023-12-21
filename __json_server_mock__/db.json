@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "name": "elon musk",
+      "phone": 13345613456,
+      "id": 1
+    },
+    {
+      "name": "jack",
+      "phone": 18812934001,
+      "id": 2
+    }
+  ],
+  "projects": [
+    {
+      "name": "买菜",
+      "personId": 1,
+      "id": 1
+    },
+    {
+      "name": "打酱油",
+      "personId": 2,
+      "id": 2
+    },
+    {
+      "name": "炒菜",
+      "personId": 1,
+      "id": 3
+    }
+  ]
+}
