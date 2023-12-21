@@ -1,5 +1,18 @@
 import React from "react";
-export const SearchBar = ({ param, users, setParam }) => {
+interface User {
+  name: string;
+  phone: number;
+  id: number;
+}
+interface SearchBarProps {
+  users: User[];
+  param: {
+    name: string;
+    personId: string;
+  };
+  setParam: (param: SearchBarProps["param"]) => void;
+}
+export const SearchBar = ({ param, users, setParam }: SearchBarProps) => {
   return (
     <div>
       <input

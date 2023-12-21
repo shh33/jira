@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
-export const cleanObject = (obj) => {
+interface objectProps {
+  [propName: string]: any;
+}
+export const cleanObject = (obj: objectProps) => {
   const newObj = { ...obj };
   Object.keys(newObj).forEach((k) => {
     if (!newObj[k] && newObj[k] !== 0) delete newObj[k];
@@ -8,13 +11,13 @@ export const cleanObject = (obj) => {
   return newObj;
 };
 
-export const useMount = (fn) => {
+export const useMount = (fn: () => void) => {
   useEffect(() => {
     fn();
   }, []);
 };
 
-export const useDebounce = (value, delay) => {
+export const useDebounce = (value: any, delay?: number) => {
   const [debounceValue, setDebounceValue] = useState(value);
   useEffect(() => {
     let timeId = setTimeout(() => {
