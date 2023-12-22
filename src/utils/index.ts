@@ -14,6 +14,7 @@ export const cleanObject = (obj: objectProps) => {
 export const useMount = (fn: () => void) => {
   useEffect(() => {
     fn();
+    // eslint-disable-next-line
   }, []);
 };
 
@@ -26,4 +27,23 @@ export const useDebounce = <V>(value: V, delay?: number) => {
     return () => clearTimeout(timeId);
   }, [value, delay]);
   return debounceValue;
+};
+
+export const useArray = <V>(array: V[]) => {
+  const [dealArr, setDealArr] = useState(array);
+  const removeIndex = (removeIndex: number) => {
+    for (let index = 0; index < array.length; index++) {
+      if (index === removeIndex) delete array[index];
+    }
+  };
+
+  const add = (data: V) => {
+    setDealArr([...dealArr, data]);
+  };
+
+  const clear = () => {
+    setDealArr([]);
+  };
+
+  return { dealArr, clear, removeIndex, add };
 };
